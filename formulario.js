@@ -136,6 +136,12 @@ forms.forEach((form) => {
 
         label.textContent = inputElement.text;
         div.appendChild(label);
+
+        label.onclick = function () {
+          input.checked = true;
+          div.querySelector(".active")?.classList.remove("active");
+          label.classList.add("active");
+        };
       });
       formElement.appendChild(div);
     }
