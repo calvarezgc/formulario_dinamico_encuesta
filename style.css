@@ -1,0 +1,36 @@
+.container-form {
+  background-color: #f8f8f8;
+  padding: 20px;
+  height: auto;
+  overflow: hidden;
+}
+.container-form h5 {
+  text-align: center;
+  width: 100%;
+  padding: 5px;
+  font-size: 3rem;
+}
+
+#form label {
+  text-align: center !important;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-weight: lighter;
+}
+
+.container-form #form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#formSuccess {
+  background-color: #d4edd4;
+  border-radius: 16px;
+}
+
+input[type="radio"] {
+  width: 2px;
+  border-radius: 100%;
+  margin-top: 20px;
+}
