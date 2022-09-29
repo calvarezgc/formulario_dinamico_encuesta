@@ -59,9 +59,20 @@ const Questions = {
       autocomplete: "off",
       autocapitalize: "off",
       autocorrect: "off",
-      pattern: "",
+      pattern: "[a-z] {1,15}",
       title:
         "El nombre debe tener al menos 3 caracteres y contener solo letras",
+    },
+    {
+      type: "text",
+      name: "zip",
+      placeholder: "Introduce tu codigo postal",
+      required: true,
+      autocomplete: "off",
+      autocapitalize: "off",
+      autocorrect: "off",
+      pattern: "",
+      title: "El campo no puede estar vacio",
     },
     {
       type: "div",
@@ -129,6 +140,7 @@ forms.forEach((form) => {
         input.setAttribute("class", "form-control mb-1 p-3 btn-check");
         if (inputElement.required)
           input.setAtribute("required", inputElement.required);
+        input.setAttribute("checked", inputElement.required); //Marcar un elemento por defecto para asegurar que marquen una casilla
         div.appendChild(input);
         const label = document.createElement("label");
         label.setAttribute("class", "fs-3 text-center btn btn-outline-primary");
@@ -220,7 +232,7 @@ forms.forEach((form) => {
 
   //Capturamos y creamos el elemento boton siguiente y le asignamos atributos.
   const buttonNext = document.createElement("button");
-  buttonNext.setAttribute("type", "submit");
+  buttonNext.setAttribute("type", "button");
   buttonNext.setAttribute("data-next", "0");
   buttonNext.setAttribute("class", "float-end btn btn-primary btn-lg m-3");
   buttonNext.innerHTML = '<i class="fas fa-arrow-right"></i>';
@@ -304,7 +316,7 @@ forms.forEach((form) => {
     step = step - 1;
   });
 
-  //Al hacer clic en el boton enviar llamamos al evento y hacemos lo siguiente
+  //Al hacer enviar llamamos al evento y hacemos lo siguiente
   formElement.addEventListener("submit", function (event) {
     event.preventDefault();
     const formData = new FormData(event.target);
