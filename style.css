@@ -1,3 +1,7 @@
+/*
+FORMULARIO
+*/
+
 .container-form {
   background-color: #f8f8f8;
   padding: 20px;
@@ -29,17 +33,31 @@
   border-radius: 16px;
 }
 
+.form-control:focus {
+  border-color: #ff8906;
+}
+
+/*
+INPUTS TYPE RADIO
+*/
 input[type="radio"] {
   width: 2px;
   border-radius: 100%;
   margin-top: 20px;
 }
 
+/*
+LABELS
+*/
 label .active {
   background-color: #f8f8f8;
   border-radius: 100%;
   margin-top: 20px;
 }
+
+/*
+BOTONES
+*/
 
 .btn-outline-primary {
   --bs-btn-color: #ff8906;
@@ -66,9 +84,5 @@ label .active {
 
 .btn-lg:hover {
   background-color: #f25f4c;
-  border-color: #ff8906;
-}
-
-.form-control:focus {
   border-color: #ff8906;
 }
