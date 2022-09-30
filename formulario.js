@@ -50,16 +50,19 @@ const Questions = {
           text: "Más de 1000€",
         },
       ],
+      required: true,
+      error: "Porfavor elige una opción",
     },
     {
       type: "text",
       name: "name",
+      // minLength: 3,
       placeholder: "Cual es tu nombre?",
       required: true,
       autocomplete: "off",
       autocapitalize: "off",
       autocorrect: "off",
-      pattern: "[a-z] {1,15}",
+      // pattern: "[a-z] {1,15}",
       title:
         "El nombre debe tener al menos 3 caracteres y contener solo letras",
     },
@@ -83,7 +86,8 @@ const Questions = {
         //   placeholder: "Nombre",
         // },
         {
-          type: "telf",
+          type: "tel",
+          pattern: "[0-9]{3}-[0-9]{2}-[0-9]{3}",
           required: true,
           placeholder: "Teléfono",
         },
@@ -130,6 +134,7 @@ forms.forEach((form) => {
       label.textContent = formQuestion.label;
       div.setAttribute("data-id", i);
       div.appendChild(label);
+
       formQuestion.options.forEach((inputElement, index) => {
         console.log(formQuestion.options);
         const input = document.createElement("input");
@@ -140,10 +145,18 @@ forms.forEach((form) => {
         input.setAttribute("class", "form-control mb-1 p-3 btn-check");
         if (inputElement.required)
           input.setAtribute("required", inputElement.required);
-        input.setAttribute("checked", inputElement.required); //Marcar un elemento por defecto para asegurar que marquen una casilla
+        // input.setAttribute("checked", inputElement.required);
+        //↑Hacer que se seleccione un elemento por defecto para asegurar que el usuario marque una de las opciones↓
+        if (index === 0) {
+          input.checked = true;
+        }
+
         div.appendChild(input);
         const label = document.createElement("label");
-        label.setAttribute("class", "fs-3 text-center btn btn-outline-primary");
+        label.setAttribute(
+          "class",
+          "fs-3 text-center btn btn-outline-primary "
+        );
         label.setAttribute("for", inputElement.value + index);
 
         label.textContent = inputElement.text;
@@ -155,6 +168,7 @@ forms.forEach((form) => {
           label.classList.add("active");
         };
       });
+
       formElement.appendChild(div);
     }
 
