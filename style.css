@@ -1,10 +1,21 @@
 /*
+RESETEAR 
+*/
+* {
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f8f8f8;
+}
+
+/*
 FORMULARIO
 */
-
 .container-form {
   background-color: #f8f8f8;
-  padding: 20px;
+  padding: 100px;
   height: auto;
   overflow: hidden;
 }
