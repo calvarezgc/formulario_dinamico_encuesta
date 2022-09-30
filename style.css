@@ -40,3 +40,35 @@ label .active {
   border-radius: 100%;
   margin-top: 20px;
 }
+
+.btn-outline-primary {
+  --bs-btn-color: #ff8906;
+  --bs-btn-active-border-color: #f25f4c;
+  --bs-btn-active-bg: #ff8906;
+  /*Sombra al enfocar*/
+  --bs-btn-focus-shadow-rgb: 255, 137, 6;
+  border-color: #f25f4c;
+}
+
+.btn:hover {
+  background-color: #ff8906;
+  border-color: #f25f4c;
+}
+
+.btn-primary {
+  background-color: #ff8906;
+  --bs-btn-border-color: #f25f4c;
+  --bs-btn-hover-border-color: #f25f4c !important;
+  --bs-btn-hover-bg: #f25f4c !important;
+  --bs-btn-focus-shadow-rgb: 255, 137, 6;
+  color: white;
+}
+
+.btn-lg:hover {
+  background-color: #f25f4c;
+  border-color: #ff8906;
+}
+
+.form-control:focus {
+  border-color: #ff8906;
+}
