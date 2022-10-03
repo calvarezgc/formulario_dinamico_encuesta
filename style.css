@@ -38,11 +38,15 @@ body {
   border-radius: 15px;
 }
 
+.form-control {
+  display: inline;
+}
+
 /*
 FORMULARIO
 */
 .container-form {
-  padding: 60px;
+  padding: 100px;
   height: auto;
   overflow: hidden;
 }
@@ -80,19 +84,19 @@ FORMULARIO
 /*
 INPUTS TYPE RADIO
 */
-input {
+/* input {
   border-radius: 25px;
   border: solid 1px white;
   background: transparent;
-  width: 300px;
+  width: 500px;
   padding: 10px 20px;
-}
+} */
 
-input[type="radio"] {
-  width: 2px;
+/* input[type="radio"] {
+  width: 2px; 
   border-radius: 100%;
   margin-top: 20px;
-}
+} */
 
 /*
 LABELS
