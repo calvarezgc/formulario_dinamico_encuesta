@@ -56,27 +56,47 @@ const Questions = {
     {
       type: "text",
       name: "name",
-      // minLength: 3,
       placeholder: "Cual es tu nombre?",
       required: true,
       autocomplete: "off",
       autocapitalize: "off",
       autocorrect: "off",
-      // pattern: "[a-z] {1,15}",
       title:
         "El nombre debe tener al menos 3 caracteres y contener solo letras",
     },
     {
       type: "text",
-      name: "zip",
+      name: "Zip",
       placeholder: "Introduce tu codigo postal",
       required: true,
       autocomplete: "off",
       autocapitalize: "off",
       autocorrect: "off",
       pattern: "",
-      title: "El campo no puede estar vacio",
+      title: "Proporcione un código postal con el formato #####",
     },
+    {
+      type: "text",
+      name: "Tel",
+      placeholder: "Introduce tu telefono",
+      required: true,
+      autocomplete: "off",
+      autocapitalize: "off",
+      autocorrect: "off",
+      pattern: "",
+      title: "Proporcione un numero de telefono valido",
+    },
+    // {
+    //   type: "text",
+    //   name: "Email",
+    //   placeholder: "Introduce tu email",
+    //   required: true,
+    //   autocomplete: "off",
+    //   autocapitalize: "off",
+    //   autocorrect: "off",
+    //   pattern: "",
+    //   title: "Proporcione un email valido",
+    // },
     {
       type: "div",
       label: "Rellena por ultimo estos campos",
@@ -85,16 +105,17 @@ const Questions = {
         //   type: "text",
         //   placeholder: "Nombre",
         // },
-        {
-          type: "tel",
-          pattern: "[0-9]{3}-[0-9]{2}-[0-9]{3}",
-          required: true,
-          placeholder: "Teléfono",
-        },
+        // {
+        //   type: "tel",
+        //   name: "Tel",
+        //   required: true,
+        //   placeholder: "Teléfono",
+        // },
         {
           type: "email",
+          name: "Email",
           required: true,
-          placeholder: "Email",
+          placeholder: "Introduce tu email",
         },
       ],
     },
@@ -316,6 +337,70 @@ forms.forEach((form) => {
       }
     }
 
+    //Validar que el nombre no esté vacio y debe tener al menos 3 caracteres y contener solo letras
+    if (previousDiv.name && previousDiv.name == "name") {
+      if (
+        previousDiv.value === "" ||
+        !/^[A-Za-z\s]+$/.test(previousDiv.value) ||
+        previousDiv.value.length < 3
+      ) {
+        previousDiv.classList.add("is-invalid");
+        // alert("Por favor, introduce un nombre valido.");
+        return false;
+      } else {
+        previousDiv.classList.remove("is-invalid");
+        previousDiv.classList.add("is-valid");
+      }
+    }
+
+    //Validar que el codigo postal no esté vacio, sea un numero y tenga una longitud de 5
+    if (previousDiv.name && previousDiv.name == "Zip") {
+      if (
+        previousDiv.value === "" ||
+        isNaN(previousDiv.value) ||
+        previousDiv.value.length != 5
+      ) {
+        previousDiv.classList.add("is-invalid");
+        // alert("Por favor, proporcione un código postal con el formato #####.");
+        return false;
+      } else {
+        previousDiv.classList.remove("is-invalid");
+        previousDiv.classList.add("is-valid");
+      }
+    }
+
+    //Validar que el telefono no esté vacio, sea un numero y tenga una longitud de 9 digitos
+    if (previousDiv.name && previousDiv.name == "Tel") {
+      if (
+        previousDiv.value === "" ||
+        isNaN(previousDiv.value) ||
+        previousDiv.value.length != 9
+      ) {
+        previousDiv.classList.add("is-invalid");
+        // alert("Por favor, proporcione un telefono con 9 digitos.");
+        return false;
+      } else {
+        previousDiv.classList.remove("is-invalid");
+        previousDiv.classList.add("is-valid");
+      }
+    }
+
+    //Validar que el email no esté vacio y contenga @
+    // if (previousDiv.name && previousDiv.name == "Email") {
+    //   if (
+    //     previousDiv.value === "" ||
+    //     !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(Email.value) ||
+    //     previousDiv.value.length != 9
+    //   ) {
+    //     previousDiv.classList.add("is-invalid");
+    //     // alert("Por favor, proporcione un telefono con 9 digitos.");
+    //     return false;
+    //   } else {
+    //     previousDiv.classList.remove("is-invalid");
+    //     previousDiv.classList.add("is-valid");
+    //   }
+    // }
+
     nextDiv.classList.remove("d-none");
     previousDiv.classList.add("d-none");
     step = step + 1;
@@ -351,6 +436,7 @@ forms.forEach((form) => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const formDataJson = {};
+
     formData.forEach((value, key) => {
       formDataJson[key] = value;
       if (value === "") {
