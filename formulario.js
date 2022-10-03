@@ -386,20 +386,19 @@ forms.forEach((form) => {
     }
 
     //Validar que el email no esté vacio y contenga @
-    // if (previousDiv.name && previousDiv.name == "Email") {
-    //   if (
-    //     previousDiv.value === "" ||
-    //     !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(Email.value) ||
-    //     previousDiv.value.length != 9
-    //   ) {
-    //     previousDiv.classList.add("is-invalid");
-    //     // alert("Por favor, proporcione un telefono con 9 digitos.");
-    //     return false;
-    //   } else {
-    //     previousDiv.classList.remove("is-invalid");
-    //     previousDiv.classList.add("is-valid");
-    //   }
-    // }
+    if (previousDiv.name && previousDiv.name == "Email") {
+      if (
+        previousDiv.value === "" ||
+        !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(previousDiv.value)
+      ) {
+        previousDiv.classList.add("is-invalid");
+        // alert("Por favor, proporcione un email valido.");
+        return false;
+      } else {
+        previousDiv.classList.remove("is-invalid");
+        previousDiv.classList.add("is-valid");
+      }
+    }
 
     nextDiv.classList.remove("d-none");
     previousDiv.classList.add("d-none");
@@ -452,5 +451,6 @@ forms.forEach((form) => {
       }
     });
     console.log(formDataJson);
+    alert("Gracias por rellenar el formulario");
   });
 });
