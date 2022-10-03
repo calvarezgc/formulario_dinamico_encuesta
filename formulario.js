@@ -101,15 +101,17 @@ const Questions = {
   ],
 };
 
-//Captura el formulario
+/* El código anterior está seleccionando todos los divs con la clase de divForm. */
 const forms = document.querySelectorAll(".divForm");
 
 console.log(forms);
 
+/* El código anterior está creando un formulario a partir de un archivo JSON. */
 forms.forEach((form) => {
   console.log(form);
   const divForm = form.querySelector("#form");
 
+  /* Crear un elemento de formulario y establecer los atributos del elemento de formulario. */
   const formElement = document.createElement("form");
   formElement.setAttribute("method", form.method);
   formElement.setAttribute("action", form.action);
@@ -120,11 +122,14 @@ forms.forEach((form) => {
   formElement.setAttribute("autocorrect", form.autocorrect);
   divForm.appendChild(formElement);
 
+  /* Creando una variable llamada formQuestions y asignándole el valor de Questions.questions
+   formación. Luego está creando un bucle for que recorrerá la matriz y creará una variable
+   llama formQuestion y le asigna el valor del índice actual de la matriz. */
   const formQuestions = Questions.questions;
   for (let i = 0; i < formQuestions.length; i++) {
     const formQuestion = formQuestions[i];
 
-    //Si la pregunta del formulario es de tipo RADIO hace lo siguiente.
+    /*Crear un elemento div y agregarle un elemento de etiqueta. */
     if (formQuestion.type == "radio") {
       const div = document.createElement("div");
       if (i !== 0) div.classList.add("d-none");
@@ -135,6 +140,7 @@ forms.forEach((form) => {
       div.setAttribute("data-id", i);
       div.appendChild(label);
 
+      /* El código anterior está creando un botón de radio para cada opción en la matriz formQuestion.options. */
       formQuestion.options.forEach((inputElement, index) => {
         console.log(formQuestion.options);
         const input = document.createElement("input");
@@ -169,6 +175,7 @@ forms.forEach((form) => {
         };
       });
 
+      /* Crear un elemento div y agregarlo al elemento de formulario. */
       formElement.appendChild(div);
     }
 
@@ -244,23 +251,27 @@ forms.forEach((form) => {
     //create buttons for next question remove d-none class
   }
 
-  //Capturamos y creamos el elemento boton siguiente y le asignamos atributos.
+  /* Crear un elemento de botón y establecer los atributos del botón. */
   const buttonNext = document.createElement("button");
   buttonNext.setAttribute("type", "button");
   buttonNext.setAttribute("data-next", "0");
   buttonNext.setAttribute("class", "float-end btn btn-primary btn-lg m-3");
   buttonNext.innerHTML = '<i class="fas fa-arrow-right"></i>';
 
-  //Capturamos y creamos el elemento boton previo y le asignamos atributos.
+  /* Crear un elemento de botón y establecer el atributo de tipo en botón. */
   const buttonPrevious = document.createElement("button");
   buttonPrevious.setAttribute("type", "button");
 
+  /* Establecer el atributo de clase del elemento buttonPrevious en "d-none btn btn-primary btn-lg m-3
+  btn-block" y configurando el HTML interno del elemento buttonPrevious en '<i class="fas
+ fa-arrow-left"></i>'. */
   buttonPrevious.setAttribute(
     "class",
     "d-none btn btn-primary btn-lg m-3 btn-block"
   );
   buttonPrevious.innerHTML = '<i class="fas fa-arrow-left"></i>';
 
+  /* Crear un elemento de botón y agregarlo al elemento de formulario. */
   const buttonSubmit = document.createElement("button");
   buttonSubmit.setAttribute("type", "submit");
   buttonSubmit.setAttribute(
@@ -276,7 +287,8 @@ forms.forEach((form) => {
   const finishQuestion = formQuestions.length - 1;
   var step = 0;
 
-  //Al hacer clic en el boton siguiente llamamos al evento y hacemos lo siguiente
+  /* El código anterior está agregando un detector de eventos al elemento buttonNext. Cuando se hace clic en el botón,
+   el evento no puede realizar su acción predeterminada. La siguiente variable se establece en el valor de la atributo data-next del botón. Si la variable de paso es mayor o igual a 0, el Se modifica la lista de clases buttonPrevious para eliminar la clase d-none. Si la variable de paso es igual a la variable finishQuestion, se muestra una alerta. La variable nextDiv se establece en el formulario elemento con el atributo data-id igual a la variable de paso más 1. La variable previousDiv es*/
   buttonNext.addEventListener("click", function (event) {
     event.preventDefault();
     const next = parseInt(event.target.getAttribute("data-next"));
@@ -313,7 +325,8 @@ forms.forEach((form) => {
     }
   });
 
-  //Al hacer clic en el boton previo llamamos al evento y hacemos lo siguiente
+  /* El código anterior está agregando un detector de eventos al elemento buttonPrevious. Cuando el botón está se hace clic, el evento no puede realizar su acción predeterminada. Si el paso es igual a 1, el botón El elemento anterior está oculto. La variable nextDiv se establece en el elemento de formulario con el ID de datos
+   atributo igual al paso menos 1. La variable anteriorDiv se establece en el elemento de formulario con el atributo data-id igual al paso. Si el paso es igual a la variable finishQuestion, el elemento buttonSubmit está oculto y se muestra el elemento buttonNext. Se muestra el elemento nextDiv. */
   buttonPrevious.addEventListener("click", function (event) {
     event.preventDefault();
     if (step == 1) {
@@ -330,7 +343,10 @@ forms.forEach((form) => {
     step = step - 1;
   });
 
-  //Al hacer enviar llamamos al evento y hacemos lo siguiente
+  /* El código anterior está agregando un detector de eventos al elemento de formulario. Cuando se envía el formulario, el
+   El detector de eventos evitará la acción predeterminada del envío del formulario. A continuación, creará una nueva
+   Objeto FormData del elemento de formulario. Luego creará un nuevo objeto a partir del objeto FormData.
+   Luego recorrerá el objeto y verificará si el valor está vacío. Si está vacío, se agregará la clase "no es válida" al elemento de entrada. Si no está vacío, eliminará la clase "no es válido" y agrega la clase "es-válido */
   formElement.addEventListener("submit", function (event) {
     event.preventDefault();
     const formData = new FormData(event.target);
