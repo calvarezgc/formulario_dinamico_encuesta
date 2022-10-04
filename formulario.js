@@ -386,7 +386,7 @@ forms.forEach((form) => {
     }
 
     //Validar que el email no esté vacio y contenga @
-    if (previousDiv.name && previousDiv.name == "Email") {
+    if (previousDiv.type && previousDiv.type == "email") {
       if (
         previousDiv.value === "" ||
         !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(previousDiv.value)
