@@ -10,12 +10,10 @@ RESETEAR
 }
 
 body {
-  /* background-color: #f8f8f8; */
   width: 100%;
   height: auto;
   min-height: 100vh;
   background-image: url(http://i.imgur.com/w16HASj.png);
-  /* background: linear-gradient(to bottom, #000428, #004683); */
   background-size: 100% 100%;
   background-position: top center;
 }
@@ -46,8 +44,6 @@ body {
 FORMULARIO
 */
 .container-form {
-  /* padding: 100px; */
-  /* height: auto; */
   overflow: hidden;
 }
 .container-form h5 {
@@ -82,23 +78,6 @@ FORMULARIO
 }
 
 /*
-INPUTS TYPE RADIO
-*/
-/* input {
-  border-radius: 25px;
-  border: solid 1px white;
-  background: transparent;
-  width: 500px;
-  padding: 10px 20px;
-} */
-
-/* input[type="radio"] {
-  width: 2px; 
-  border-radius: 100%;
-  margin-top: 20px;
-} */
-
-/*
 LABELS
 */
 label .active {
@@ -107,18 +86,9 @@ label .active {
   margin-top: 20px;
 }
 
-/* label .active {
-  border-radius: 25px;
-  border: solid 1px white;
-  background: transparent;
-  width: 300px;
-  padding: 10px 20px;
-} */
-
 /*
 BOTONES
 */
-
 .btn-outline-primary {
   --bs-btn-color: #ff8906;
   --bs-btn-active-border-color: #f25f4c;
@@ -151,11 +121,28 @@ BOTONES
 MEDIA QUERIES
 */
 @media only screen and (max-width: 600px) {
-  .container-form h5 {
-    font-size: 2.4rem;
-  }
+  /* .container-form h5 {
+    font-size: 2rem;
+  } */
 
   .p-3 {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
+  }
+
+  .container-form {
+    width: 80%;
+    max-height: 600px;
+  }
+
+  .fs-3 {
+    font-size: 1.2rem !important;
+  }
+
+  .m-3 {
+    margin: initial !important;
+  }
+
+  body {
+    background-size: contain;
   }
 }
