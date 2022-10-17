@@ -8,17 +8,22 @@ const Questions = {
     {
       type: "radio",
       name: "question1",
-      label: "¿Qué tipo de gafas utilizas?",
+      label: "¿Qué tipo de gafas graduadas utilizas?",
       options: [
         {
-          label: "Gafas Monofocales",
+          label: "De lejos",
           value: "option1",
-          text: "Monofocales",
+          text: "De lejos",
         },
         {
-          label: "Gafas Progresivas",
+          label: "De Cerca",
           value: "option2",
-          text: "Progresivas",
+          text: "De Cerca",
+        },
+        {
+          label: "Progresivas (ambas)",
+          value: "option3",
+          text: "Progresivas (ambas)",
         },
       ],
       required: true,
@@ -27,61 +32,80 @@ const Questions = {
     {
       type: "radio",
       name: "question2",
-      label: "¿Cuánto te costo tus últimas gafas?",
+      label: "¿Cuánto te gastaste en tus últimas gafas?",
       options: [
         {
-          label: "Menos de 100€",
+          label: "Entre 0 y 100 euros",
           value: "option1",
-          text: "Menos de 100€",
+          text: "Entre 0 y 100 euros",
         },
         {
-          label: "Entre 100€ y 300€",
+          label: "Entre 100 y 250 euros",
           value: "option2",
-          text: "Entre 100€ y 300€",
+          text: "Entre 100 y 250 euros",
         },
         {
-          label: "Entre 300€ y 1000€",
+          label: "Más de 250 euros",
           value: "option3",
-          text: "Entre 300€ y 1000€",
-        },
-        {
-          label: "Más de 1000€",
-          value: "option4",
-          text: "Más de 1000€",
+          text: "Más de 250 euros",
         },
       ],
       required: true,
       error: "Porfavor elige una opción",
     },
     {
-      type: "text",
-      name: "name",
-      placeholder: "Cual es tu nombre?",
-      title:
-        "El nombre debe tener al menos 3 caracteres y contener solo letras",
-    },
-    {
-      type: "text",
-      name: "Zip",
-      placeholder: "Introduce tu codigo postal",
-      title: "Proporcione un código postal con el formato #####",
-    },
-    {
-      type: "text",
-      name: "Tel",
-      placeholder: "Introduce tu telefono",
+      type: "radio",
+      name: "question3",
+      label: "¿Has comprado online alguna de tus gafas graduadas?",
+      options: [
+        {
+          label: "Sí",
+          value: "option1",
+          text: "Sí",
+        },
+        {
+          label: "No",
+          value: "option2",
+          text: "No",
+        },
+        {
+          label: "¿Es posible?",
+          value: "option3",
+          text: "¿Es posible?",
+        },
+      ],
       required: true,
-      title: "Proporcione un numero de telefono valido",
+      error: "Porfavor elige una opción",
     },
     {
       type: "div",
-      label: "Rellena por ultimo estos campos",
+      label: "Indícanos tus datos para enviarte información sin compromiso :)",
       questions: [
+        {
+          type: "text",
+          name: "name",
+          placeholder: "Nombre",
+          title:
+            "El nombre debe tener al menos 3 caracteres y contener solo letras",
+        },
         {
           type: "email",
           name: "Email",
           required: true,
-          placeholder: "Introduce tu email",
+          placeholder: "Email",
+        },
+        {
+          type: "text",
+          name: "Tel",
+          placeholder: "Telefono",
+          required: true,
+          title: "Proporcione un numero de telefono valido",
+        },
+        {
+          type: "checkbox",
+          name: "condiciones",
+          required: true,
+          title: "He leído y acepto la política de privacidad",
         },
       ],
     },
