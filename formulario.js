@@ -101,12 +101,13 @@ const Questions = {
           required: true,
           title: "Proporcione un numero de telefono valido",
         },
-        {
-          type: "checkbox",
-          name: "condiciones",
-          required: true,
-          title: "He leído y acepto la política de privacidad",
-        },
+        // {
+        //   type: "checkbox",
+        //   name: "condiciones",
+        //   placeholder: "Condiciones",
+        //   required: true,
+        //   title: "He leído y acepto la política de privacidad",
+        // },
       ],
     },
   ],
@@ -411,5 +412,27 @@ forms.forEach((form) => {
       console.log(formDataJson);
       alert("Gracias por rellenar el formulario");
     }
+    //Intentado integrar el backend
+    fetch("post.php", {
+      method: "POST",
+      body: JSON.stringify(formDataJson),
+    })
+      .then(function (response) {
+        console.log("Success:", response);
+
+        response.json().then(function (data) {
+          console.log(data);
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+      .finally(function () {
+        document.querySelector("#formSuccess").classList.remove("d-none");
+        formElement.classList.add("d-none");
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   });
 });
