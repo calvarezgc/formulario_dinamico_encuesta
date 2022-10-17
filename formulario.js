@@ -110,6 +110,21 @@ const Questions = {
         // },
       ],
     },
+    {
+      type: "checkbox",
+      name: "condiciones",
+      label: "He leído y acepto la política de privacidad",
+      required: true,
+      title: "He leído y acepto la política de privacidad",
+      error: "Acepte los terminos",
+      options: [
+        {
+          label: "Sí",
+          value: "option1",
+          text: "Sí",
+        },
+      ],
+    },
   ],
 };
 
@@ -173,6 +188,28 @@ forms.forEach((form) => {
           formElement.querySelectorAll("button")[1]?.click();
         };
       });
+      formElement.appendChild(div);
+    }
+
+    //Si la pregunta del formulario es de tipo CHECKBOX hace lo siguiente.
+    if (formQuestion.type === "checkbox") {
+      const div = document.createElement("div");
+      if (i !== 0) div.classList.add("d-none");
+      const label = document.createElement("label");
+      label.setAttribute("for", formQuestion.name);
+      label.setAttribute("class", "fs-3", "form-check-label");
+      label.innerHTML = "He leído y acepto la política de privacidad";
+      div.appendChild(label);
+      div.setAttribute("data-id", i);
+      const checkboxElement = document.createElement("input");
+      checkboxElement.setAttribute("type", "checkbox");
+      checkboxElement.setAttribute("id", "checkbox");
+      checkboxElement.setAttribute("name", "condiciones");
+      checkboxElement.setAttribute("checked", "checked");
+      checkboxElement.setAttribute("required", "required");
+      checkboxElement.setAttribute("class", "p3", "form-check-input");
+      formElement.appendChild(checkboxElement);
+      div.appendChild(checkboxElement);
       formElement.appendChild(div);
     }
 
