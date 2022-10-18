@@ -7,22 +7,22 @@ const Questions = {
   questions: [
     {
       type: "radio",
-      name: "question1",
+      name: "¿Qué tipo de gafas graduadas utilizas?",
       label: "¿Qué tipo de gafas graduadas utilizas?",
       options: [
         {
           label: "De lejos",
-          value: "option1",
+          value: "De lejos",
           text: "De lejos",
         },
         {
           label: "De Cerca",
-          value: "option2",
+          value: "De Cerca",
           text: "De Cerca",
         },
         {
           label: "Progresivas (ambas)",
-          value: "option3",
+          value: "Progresivas (ambas)",
           text: "Progresivas (ambas)",
         },
       ],
@@ -31,22 +31,22 @@ const Questions = {
     },
     {
       type: "radio",
-      name: "question2",
+      name: "¿Cuánto te gastaste en tus últimas gafas?",
       label: "¿Cuánto te gastaste en tus últimas gafas?",
       options: [
         {
           label: "Entre 0 y 100 euros",
-          value: "option1",
+          value: "Entre 0 y 100 euros",
           text: "Entre 0 y 100 euros",
         },
         {
           label: "Entre 100 y 250 euros",
-          value: "option2",
+          value: "Entre 100 y 250 euros",
           text: "Entre 100 y 250 euros",
         },
         {
           label: "Más de 250 euros",
-          value: "option3",
+          value: "Más de 250 euros",
           text: "Más de 250 euros",
         },
       ],
@@ -55,22 +55,22 @@ const Questions = {
     },
     {
       type: "radio",
-      name: "question3",
+      name: "¿Has comprado online alguna de tus gafas graduadas?",
       label: "¿Has comprado online alguna de tus gafas graduadas?",
       options: [
         {
           label: "Sí",
-          value: "option1",
+          value: "Sí",
           text: "Sí",
         },
         {
           label: "No",
-          value: "option2",
+          value: "No",
           text: "No",
         },
         {
           label: "¿Es posible?",
-          value: "option3",
+          value: "¿Es posible?",
           text: "¿Es posible?",
         },
       ],
@@ -195,21 +195,25 @@ forms.forEach((form) => {
     if (formQuestion.type === "checkbox") {
       const div = document.createElement("div");
       if (i !== 0) div.classList.add("d-none");
-      const label = document.createElement("label");
-      label.setAttribute("for", formQuestion.name);
-      label.setAttribute("class", "fs-3", "form-check-label");
-      label.innerHTML = "He leído y acepto la política de privacidad";
-      div.appendChild(label);
-      div.setAttribute("data-id", i);
       const checkboxElement = document.createElement("input");
       checkboxElement.setAttribute("type", "checkbox");
       checkboxElement.setAttribute("id", "checkbox");
       checkboxElement.setAttribute("name", "condiciones");
+      checkboxElement.setAttribute("value", "checkbox");
       checkboxElement.setAttribute("checked", "checked");
       checkboxElement.setAttribute("required", "required");
       checkboxElement.setAttribute("class", "p3", "form-check-input");
-      formElement.appendChild(checkboxElement);
+      const label = document.createElement("label");
+      label.setAttribute("for", formQuestion.name);
+      label.setAttribute("class", "fs-3", "form-check-label");
+      label.htmlFor = "checkbox";
+      label.appendChild(
+        document.createTextNode("He leído y acepto la política de privacidad")
+      );
       div.appendChild(checkboxElement);
+      div.appendChild(label);
+      div.setAttribute("data-id", i);
+
       formElement.appendChild(div);
     }
 
