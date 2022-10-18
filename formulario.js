@@ -429,14 +429,14 @@ forms.forEach((form) => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const formDataJson = {};
-    let okForm = true;
+    // let okForm = true;
     formData.forEach((value, key) => {
       formDataJson[key] = value;
       if (value === "") {
         formElement
           .querySelector(`[name="${key}"]`)
           .classList.add("is-invalid");
-        okForm = false;
+        // okForm = false;
         return false;
       } else {
         formElement
@@ -445,11 +445,12 @@ forms.forEach((form) => {
         formElement.querySelector(`[name="${key}"]`).classList.add("is-valid");
       }
     });
-    if (okForm) {
-      console.log(formDataJson);
-      alert("Gracias por rellenar el formulario");
-    }
+    // if (okForm) {
+    //   console.log(formDataJson);
+    //   alert("Gracias por rellenar el formulario");
+    // }
     //Intentado integrar el backend
+    console.log(formDataJson);
     fetch("post.php", {
       method: "POST",
       body: JSON.stringify(formDataJson),
