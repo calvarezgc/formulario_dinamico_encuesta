@@ -145,9 +145,9 @@ MEDIA QUERIES
     font-size: 1.2rem !important;
   }
 
-  .m-3 {
+  /* .m-3 {
     margin: initial !important;
-  }
+  } */
 
   body {
     background-size: contain;
