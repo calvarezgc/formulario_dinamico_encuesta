@@ -454,11 +454,19 @@ forms.forEach((form) => {
     fetch("post.php", {
       method: "POST",
       body: JSON.stringify(formDataJson),
-      // mode: "no-cors",
     })
-      .then((response) => response.json()) // convertir a json
-      .then((json) => console.log(json)) //imprimir los datos en la consola
-      .catch((err) => console.log("Solicitud fallida", err)) //capturar errores
+      .then(function (response) {
+        console.log("Success:", response);
+        response.json().then(function (data) {
+          console.log(data);
+        });
+      })
+      .catch(function (error) {
+        console.log("Solicitud fallida:", error);
+      })
+      // .then((response) => response.json()) // convertir a json
+      // .then((json) => console.log(json)) //imprimir los datos en la consola
+      // .catch((err) => console.log("Solicitud fallida", err)) //capturar errores
       .finally(function () {
         document.querySelector("#formSuccess").classList.remove("d-none");
         formElement.classList.add("d-none");
