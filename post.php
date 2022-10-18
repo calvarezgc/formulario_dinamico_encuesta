@@ -24,3 +24,4 @@ if($question1 == "" || $question2 == "" ||$question3 == "" || $nombre == ""|| $e
 }else{
   echo json_encode($data);
 }
+
