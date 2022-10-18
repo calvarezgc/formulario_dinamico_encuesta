@@ -117,13 +117,13 @@ const Questions = {
       required: true,
       title: "He leído y acepto la política de privacidad",
       error: "Acepte los terminos",
-      options: [
-        {
-          label: "Sí",
-          value: "option1",
-          text: "Sí",
-        },
-      ],
+      // options: [
+      //   {
+      //     label: "Sí",
+      //     value: "option1",
+      //     text: "Sí",
+      //   },
+      // ],
     },
   ],
 };
@@ -199,7 +199,7 @@ forms.forEach((form) => {
       checkboxElement.setAttribute("type", "checkbox");
       checkboxElement.setAttribute("id", "checkbox");
       checkboxElement.setAttribute("name", "condiciones");
-      checkboxElement.setAttribute("value", "checkbox");
+      checkboxElement.setAttribute("value", "Si");
       checkboxElement.setAttribute("checked", "checked");
       checkboxElement.setAttribute("required", "required");
       checkboxElement.setAttribute("class", "p3", "form-check-input");
