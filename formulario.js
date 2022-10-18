@@ -451,7 +451,7 @@ forms.forEach((form) => {
     // }
     //Intentado integrar el backend
     console.log(formDataJson);
-    fetch("post.php", {
+    fetch("php/post.php", {
       method: "POST",
       body: JSON.stringify(formDataJson),
     })
