@@ -22,6 +22,7 @@
 * Usando el método setAttribute() para establecer los atributos de los elementos.
 * Agregando estos elementos al elemento <form> mediante el método appendChild().
 * Finalmente, agregando el elemento <form> al elemento <body> del documento.
+* Por último, usando PHP para enviar los datos introducidos en el formulario a través de el método POST.
 
 
 ### Construido Con
